@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import DotBoard from './components/DotBoard';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Schematic Editor</h1>
+      <div className='component'>
+         <img className='component-item' src='./circuitIcons/capacitor.png' alt='capacitor'></img>
+         <img className='component-item' src='./circuitIcons/resistor.png' alt='resistor'></img>
+         <img className='component-item' src='./circuitIcons/battery.png' alt='battery'></img>
+         <img className='component-item' src='./circuitIcons/ground.png' alt='ground'></img>
+      </div>
+     
+     <DotBoard w={30} h={20}/>
     </div>
   );
 }
