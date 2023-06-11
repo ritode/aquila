@@ -17,7 +17,6 @@ export default function DotBoard({w,h}){
     return(
         <div className="dot-board">
             <Grid rows={w} columns={h} />
-            <svg id="line"></svg>
         </div>
     )
 }
