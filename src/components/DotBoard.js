@@ -6,8 +6,6 @@ export default function DotBoard({ w, h }) {
   const [endPosition, setEndPosition] = useState({ x: null, y: null });
   const [running, setRunning] = useState(false);
 
-  const [connected, setConnected] = useState(false);
-
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event;
     if (running) setEndPosition({ x: clientX - 380, y: clientY - 140 });
@@ -32,14 +30,6 @@ export default function DotBoard({ w, h }) {
       setRunning(false);
     }
   };
-  // useEffect(() => {
-  //   if (startPosition && endPosition) {
-  //     setLines((prevLines) => [
-  //       ...prevLines,
-  //       { id: Date.now(), start: startPosition, end: endPosition },
-  //     ]);
-  //   }
-  // }, [startPosition, endPosition]);
 
   function Grid({ rows, columns, handleDivClick, handleMouseMove }) {
     const gridItems = [];
@@ -47,17 +37,15 @@ export default function DotBoard({ w, h }) {
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
         const key = `${i}-${j}`;
-        const gridItem = <div className="grid-item" key={key}></div>;
+        const gridItem = (
+          <div className="grid-item" key={key} onClick={handleDivClick}></div>
+        );
         gridItems.push(gridItem);
       }
     }
 
     return (
-      <div
-        className="grid-container"
-        onClick={handleDivClick}
-        onMouseMove={handleMouseMove}
-      >
+      <div className="grid-container" onMouseMove={handleMouseMove}>
         {gridItems}
       </div>
     );
